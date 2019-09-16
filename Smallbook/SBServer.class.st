@@ -1,0 +1,113 @@
+Class {
+	#name : #SBServer,
+	#superclass : #Object,
+	#instVars : [
+		'host',
+		'port',
+		'slides',
+		'server',
+		'delegator',
+		'styleCSS'
+	],
+	#category : #Smallbook
+}
+
+{ #category : #'instance creation' }
+SBServer class >> new: aPort [
+	"comment stating purpose of message"
+
+	|server|
+	server := self new.
+	server port: aPort.
+	^server
+]
+
+{ #category : #action }
+SBServer >> addSlide: aSlide index: aIndex [
+	"comment stating purpose of message"
+
+	self slides add: aSlide.
+	self delegator map: ('/',aIndex asString) to: [ :request :response | response entity: (ZnEntity html: aSlide style)]
+]
+
+{ #category : #accessing }
+SBServer >> delegator [
+	^ delegator
+]
+
+{ #category : #accessing }
+SBServer >> delegator: anObject [
+	delegator := anObject
+]
+
+{ #category : #accessing }
+SBServer >> host [
+	^ host
+]
+
+{ #category : #accessing }
+SBServer >> host: anObject [
+	host := anObject
+]
+
+{ #category : #initialization }
+SBServer >> initialize [ 
+	"comment stating purpose of message"
+
+	self slides: OrderedCollection new.
+	self host: 'localhost'.
+	self delegator:ZnDispatcherDelegate new.
+]
+
+{ #category : #accessing }
+SBServer >> port [
+	^ port
+]
+
+{ #category : #accessing }
+SBServer >> port: anObject [
+	port := anObject
+]
+
+{ #category : #accessing }
+SBServer >> server [
+	^ server
+]
+
+{ #category : #accessing }
+SBServer >> server: anObject [
+	server := anObject
+]
+
+{ #category : #accessing }
+SBServer >> slides [
+	^ slides
+]
+
+{ #category : #accessing }
+SBServer >> slides: anObject [
+	slides := anObject
+]
+
+{ #category : #action }
+SBServer >> start [
+
+	self server:(ZnServer startDefaultOn: self port). 
+	self server delegate: self delegator.
+]
+
+{ #category : #action }
+SBServer >> stop [
+
+	self server stop.
+]
+
+{ #category : #accessing }
+SBServer >> styleCSS [
+	^ styleCSS
+]
+
+{ #category : #accessing }
+SBServer >> styleCSS: anObject [
+	styleCSS := anObject
+]
