@@ -4,12 +4,22 @@ Pharo lib.
 
 ```smalltalk
 server := SBServer new: 8080.
-slide := SBSlide new:'Titulo'.
-slide addComponents: (SBParagrah new: 'Este es un parrafo grande').
-slide addComponents: (SBCode new: 'a := 20.').
 ```
+
+# Principal Slide in localhost:8080/.
+```smalltalk
+slide := (SBSlide new:'Introducción a Pharo') specialSlide.
+slide addComponents: (SBParagrah new: 'Author1, Author2').
+server addPrincipalSlide: slide.
+
+```
+
 # New Slide in localhost:8080/1.
 ```smalltalk
+slide := SBSlide new:'Asignación en Pharo'.
+slide addComponents: (SBParagrah new: '¿Como hacemos una asignación?').
+slide addComponents: (SBCode new: 'number := 20.').
+slide addComponents: (SBCode new: 'listInteger := #(1 2 3 4 5).').
 server addSlide: slide index: 1.
 ```
 
