@@ -28,7 +28,7 @@ SBImage >> src: anObject [
 	src := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #action }
 SBImage >> style [
 	"comment stating purpose of message"
 	^'<img src"', self src,'" class="SBImage"></img>'.

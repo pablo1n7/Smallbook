@@ -11,7 +11,7 @@ Class {
 SBTitle >> initialize [ 
 	"comment stating purpose of message"
 
-	self level:'h1'.
+	self level:'h2'.
 ]
 
 { #category : #accessing }
@@ -24,7 +24,7 @@ SBTitle >> level: anObject [
 	level := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #action }
 SBTitle >> style [
 	"comment stating purpose of message"
 

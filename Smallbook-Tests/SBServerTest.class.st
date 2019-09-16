@@ -106,13 +106,3 @@ SBServerTest >> testStop [
 	sbserver stop.
 	self assert: sbserver server isRunning  equals: false.
 ]
-
-{ #category : #test }
-SBServerTest >> testStyleCSS [
-
-
-	|slide|
-	slide := SBServer new.
-	slide styleCSS: 'jupylab'.
-	self assert: slide styleCSS equals: 'jupylab'
-]

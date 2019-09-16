@@ -2,7 +2,8 @@ Class {
 	#name : #SBSlide,
 	#superclass : #SBComponent,
 	#instVars : [
-		'components'
+		'components',
+		'styleCSS'
 	],
 	#category : #Smallbook
 }
@@ -16,6 +17,34 @@ SBSlide class >> new: aText [
 	slide text: aText.
 	slide addComponents: (SBTitle new: slide text).
 	^ slide
+]
+
+{ #category : #constants }
+SBSlide class >> simpleStyle [
+	"comment stating purpose of message"
+	^'
+	<style>
+	h1{
+		text-aling:center;
+		font-size:3.5em;
+	}
+	
+	.SBSlide{
+		font-size:3em;
+		margin: 1em;
+	}
+	.SBTitle{
+	}
+
+	.SBParagrah {
+ 		padding: 2%;
+	}
+	
+	.SBCode {
+ 		padding: 4%;
+	}
+	</style>
+	'
 ]
 
 { #category : #action }
@@ -39,15 +68,32 @@ SBSlide >> components: anObject [
 SBSlide >> initialize [
 	"comment stating purpose of message"
 	self components: OrderedCollection new.
+	self styleCSS: self class simpleStyle. 
 ]
 
-{ #category : #accessing }
+{ #category : #action }
+SBSlide >> specialSlide [
+	"comment stating purpose of message"
+	(self components at:1) level:'h1'.
+]
+
+{ #category : #action }
 SBSlide >> style [
 	"comment stating purpose of message"
 	|string|
-	string := '<div class="SBSlide">'.
+	string := '<body>',self styleCSS ,'<div class="SBSlide">'.
 	(self components) do: [ :each |
 		string := string, (each style)].
-	^ string,'</div>'
+	^ string,'</div></body>'
 
+]
+
+{ #category : #accessing }
+SBSlide >> styleCSS [
+	^ styleCSS
+]
+
+{ #category : #accessing }
+SBSlide >> styleCSS: anObject [
+	styleCSS := anObject
 ]

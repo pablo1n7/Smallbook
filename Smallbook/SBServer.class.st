@@ -6,8 +6,7 @@ Class {
 		'port',
 		'slides',
 		'server',
-		'delegator',
-		'styleCSS'
+		'delegator'
 	],
 	#category : #Smallbook
 }
@@ -20,6 +19,12 @@ SBServer class >> new: aPort [
 	server := self new.
 	server port: aPort.
 	^server
+]
+
+{ #category : #action }
+SBServer >> addPrincipalSlide: aSlide [
+	"comment stating purpose of message"
+	self addSlide: aSlide index: ''. 
 ]
 
 { #category : #action }
@@ -100,14 +105,4 @@ SBServer >> start [
 SBServer >> stop [
 
 	self server stop.
-]
-
-{ #category : #accessing }
-SBServer >> styleCSS [
-	^ styleCSS
-]
-
-{ #category : #accessing }
-SBServer >> styleCSS: anObject [
-	styleCSS := anObject
 ]

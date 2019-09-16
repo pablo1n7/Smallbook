@@ -35,5 +35,15 @@ SBSlideTest >> testInitialize [
 	slide := SBSlide new:'titlte'.
 	self assert: slide components size equals:1.
 	self assert: (slide components at:1) text equals:'titlte'.
-	self assert: ((slide components at:1) style) equals:'<h1>titlte</h1>'
+	self assert: ((slide components at:1) style) equals:'<h1 class="SBTitle">titlte</h1>'
+]
+
+{ #category : #test }
+SBSlideTest >> testStyleCSS [
+
+
+	|slide|
+	slide :=SBSlide new.
+	slide styleCSS: 'jupylab'.
+	self assert: slide styleCSS equals: 'jupylab'
 ]

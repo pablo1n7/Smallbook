@@ -4,8 +4,8 @@ Class {
 	#category : #Smallbook
 }
 
-{ #category : #accessing }
+{ #category : #action }
 SBCode >> style [
 	"comment stating purpose of message"
-	^'<i class="SBCode">',self text,'</i>'.
+	^'<p><i class="SBCode">',self text,'</i></p>'.
 ]

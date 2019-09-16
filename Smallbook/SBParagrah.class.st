@@ -4,7 +4,7 @@ Class {
 	#category : #Smallbook
 }
 
-{ #category : #accessing }
+{ #category : #action }
 SBParagrah >> style [
 	"comment stating purpose of message"
 	^'<p class="SBParagrah">',self text,'</p>'.
