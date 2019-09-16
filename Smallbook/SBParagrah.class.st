@@ -7,5 +7,5 @@ Class {
 { #category : #accessing }
 SBParagrah >> style [
 	"comment stating purpose of message"
-	^'<p>',self text,'</p>'.
+	^'<p class="SBParagrah">',self text,'</p>'.
 ]

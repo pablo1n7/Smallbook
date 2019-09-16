@@ -45,9 +45,9 @@ SBSlide >> initialize [
 SBSlide >> style [
 	"comment stating purpose of message"
 	|string|
-	string := ''.
+	string := '<div class="SBSlide">'.
 	(self components) do: [ :each |
 		string := string, (each style)].
-	^ string
+	^ string,'</div>'
 
 ]

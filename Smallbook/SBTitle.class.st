@@ -28,5 +28,5 @@ SBTitle >> level: anObject [
 SBTitle >> style [
 	"comment stating purpose of message"
 
-	^ '<',self level,'>',self text,'</',self level,'>'
+	^ '<',self level,' class="SBTitle">',self text,'</',self level,'>'
 ]

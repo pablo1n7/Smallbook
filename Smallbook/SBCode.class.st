@@ -7,5 +7,5 @@ Class {
 { #category : #accessing }
 SBCode >> style [
 	"comment stating purpose of message"
-	^'<i>',self text,'</i>'.
+	^'<i class="SBCode">',self text,'</i>'.
 ]
