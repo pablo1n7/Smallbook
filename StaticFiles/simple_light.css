@@ -1,0 +1,47 @@
+body{
+	
+	background-color: white;
+	color: black;
+}
+	
+.SpecialTitle{
+	text-aling:center;
+	font-size:3.5em;
+}
+
+.NormalTitle{
+
+}
+
+.SBSlide{
+	font-size:3em;
+	margin: 1em;
+}
+.SBTitle{
+}
+
+.SBParagrah {
+	padding-top: 2%;
+}
+
+.hljs {
+	margin:0%;
+	padding:0%;
+	padding-left:4%;
+	background:inherit;
+	color:inherit;
+}
+
+.hljs-number{
+	color:cadetblue;
+}
+
+.hljs-type{
+	color:burlywood;
+}
+
+.SBCode {
+	padding-left: 4%;
+	font-family: Droid Sans Mono;
+	font-size: 0.8em;
+}
