@@ -40,6 +40,10 @@ body{
 	color:burlywood;
 }
 
+.hljs-string{
+	color:cadetblue;
+}
+
 .SBCode {
 	padding-left: 4%;
 	font-family: Droid Sans Mono;

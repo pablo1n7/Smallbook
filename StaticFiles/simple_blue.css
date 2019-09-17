@@ -1,7 +1,7 @@
 body{
 	
-	background-color: black;
-	color: white;
+	background-color: rgb(226, 224, 222);
+	color: rgb(42, 41, 126);
 }
 	
 .SpecialTitle{
@@ -28,8 +28,8 @@ body{
 	margin:0%;
 	padding:0%;
 	padding-left:4%;
-	background:black;
-	color:white;
+	background:inherit;
+	color:inherit;
 }
 
 .hljs-number{
