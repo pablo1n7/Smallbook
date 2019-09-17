@@ -7,5 +7,7 @@ Class {
 { #category : #action }
 SBCode >> style [
 	"comment stating purpose of message"
-	^'<p><i class="SBCode">',self text,'</i></p>'.
+	"^'<p class=SBCode>',self text,'</p>'."
+	^'<pre class="smalltalk SBCode"><code>', self text,'</code></pre><script>format()</script>'
+
 ]

@@ -9,6 +9,25 @@ Class {
 	#category : #Smallbook
 }
 
+{ #category : #constants }
+SBSlide class >> javascript [
+	"comment stating purpose of message"
+	^'
+		<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/default.min.css">
+		<script ></script>
+		<script>
+		function format(){
+    		var b=document.getElementsByTagName("pre");
+    		for (i=0;b.length;i++) {
+    			hljs.highlightBlock(b[i],false);
+    		}
+		}
+		format()
+		</script>
+	'
+]
+
 { #category : #'instance creation' }
 SBSlide class >> new: aText [
 	"comment stating purpose of message"
@@ -42,11 +61,14 @@ SBSlide class >> simpleStyle [
 	}
 
 	.SBParagrah {
- 		padding: 2%;
+ 		padding-top: 2%;
 	}
 	
 	.SBCode {
- 		padding: 4%;
+		padding: 0% !import;
+ 		padding-left: 4%;
+		font-family: Droid Sans Mono;
+		font-size: 0.8em;
 	}
 	
 	.Control{
@@ -110,12 +132,26 @@ SBSlide class >> simpleStyleInv [
 	}
 
 	.SBParagrah {
- 		padding: 2%;
+ 		padding-top: 2%;
+	}
+	
+	.hljs {
+		margin:0%;
+		padding:0%;
+		padding-left:4%;
+	}
+	
+	.hljs-constant{
+		color:cadetblue;
 	}
 	
 	.SBCode {
- 		padding: 4%;
+ 		padding-left: 4%;
+		font-family: Droid Sans Mono;
+		font-size: 0.8em;
 	}
+	
+	
 	
 	.Control{
 		text-align:center;
@@ -212,7 +248,7 @@ SBSlide >> specialSlide [
 SBSlide >> style: aSize [
 	"comment stating purpose of message"
 	|string|
-	string := '<body>',self styleCSS ,'<div class="Control" > <a class="Prev" href="/',((self prevIndex: aSize) asString),'"><<<a/> ',(self index asString),' / ',(aSize asString),' <a class="Next" href="/',((self nextIndex: aSize) asString),'">>><a/></div><div class="SBSlide">'.
+	string := self class javascript,'<body>',self styleCSS ,'<div class="Control" > <a class="Prev" href="/',((self prevIndex: aSize) asString),'"><<<a/> ',(self index asString),' / ',(aSize asString),' <a class="Next" href="/',((self nextIndex: aSize) asString),'">>><a/></div><div class="SBSlide">'.
 	(self components) do: [ :each |
 		string := string, (each style)].
 	^ string,'</div></body>'

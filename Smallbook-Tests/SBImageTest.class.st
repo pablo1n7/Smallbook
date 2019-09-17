@@ -19,8 +19,8 @@ SBImageTest >> testAlign [
 SBImageTest >> testAling [
 
 	|image|
-	image := SBImage new aling: 'Left'.
-	self assert: image aling equals: 'Left'.
+	image := SBImage new align: 'Left'.
+	self assert: image align equals: 'Left'.
 ]
 
 { #category : #test }
