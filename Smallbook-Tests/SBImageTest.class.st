@@ -8,6 +8,14 @@ Class {
 }
 
 { #category : #test }
+SBImageTest >> testAlign [
+
+	|image|
+	image := SBImage new align: 'Left'.
+	self assert: image align equals: 'Left'.
+]
+
+{ #category : #test }
 SBImageTest >> testAling [
 
 	|image|

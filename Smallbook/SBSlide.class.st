@@ -67,6 +67,18 @@ SBSlide class >> simpleStyle [
   	 	text-decoration: inherit; /* no underline */
 	}
 	
+	.Left{
+		text-align: left !important;
+	}
+	
+	.Right{
+		text-align: right !important;
+	}
+	
+	.Center{
+		text-align: center !important;
+	}
+	
 	</style>
 	'
 ]
@@ -120,6 +132,18 @@ SBSlide class >> simpleStyleInv [
 	
 	.Prev{
 		padding-right: 5%;
+	}
+	
+	.Left{
+		text-align: left !important;
+	}
+	
+	.Right{
+		text-align: right !important;
+	}
+	
+	.Center{
+		text-align: center !important;
 	}
 	
 	
