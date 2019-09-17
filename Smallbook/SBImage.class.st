@@ -31,6 +31,6 @@ SBImage >> src: anObject [
 { #category : #action }
 SBImage >> style [
 	"comment stating purpose of message"
-	^'<img src"', self src,'" class="SBImage"></img>'.
+	^'<img src"', self src,'" class="SBImage ',self aling,'"></img>'.
 	
 ]

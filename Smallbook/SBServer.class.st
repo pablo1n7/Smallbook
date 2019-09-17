@@ -22,17 +22,10 @@ SBServer class >> new: aPort [
 ]
 
 { #category : #action }
-SBServer >> addPrincipalSlide: aSlide [
+SBServer >> addSlide: aSlide [
 	"comment stating purpose of message"
-	self addSlide: aSlide index: ''. 
-]
-
-{ #category : #action }
-SBServer >> addSlide: aSlide index: aIndex [
-	"comment stating purpose of message"
-
+	aSlide index: ((self slides size) +1).
 	self slides add: aSlide.
-	self delegator map: ('/',aIndex asString) to: [ :request :response | response entity: (ZnEntity html: aSlide style)]
 ]
 
 { #category : #accessing }
@@ -74,6 +67,14 @@ SBServer >> port: anObject [
 	port := anObject
 ]
 
+{ #category : #action }
+SBServer >> root: aRoot slide: aSlide size: aSize [
+	"comment stating purpose of message"
+	
+	(aRoot = '1') ifTrue:[self delegator map: '/' to: [ :request :response | response entity: (ZnEntity html: (aSlide style: aSize))]].
+	self delegator map: ('/',aRoot asString) to: [ :request :response | response entity: (ZnEntity html: (aSlide style: aSize))]
+]
+
 { #category : #accessing }
 SBServer >> server [
 	^ server
@@ -98,6 +99,7 @@ SBServer >> slides: anObject [
 SBServer >> start [
 
 	self server:(ZnServer startDefaultOn: self port). 
+	(self slides) do:[:each | self root: (each index) asString slide: each size:(self slides) size].
 	self server delegate: self delegator.
 ]
 

@@ -29,13 +29,50 @@ SBSlideTest >> testComponents [
 ]
 
 { #category : #test }
+SBSlideTest >> testIndex [
+
+	|slide|
+	slide := SBSlide new:'titlte'.
+	slide index: 2.
+	self assert: slide index equals:2.
+]
+
+{ #category : #test }
 SBSlideTest >> testInitialize [
 
 	|slide|
 	slide := SBSlide new:'titlte'.
 	self assert: slide components size equals:1.
 	self assert: (slide components at:1) text equals:'titlte'.
-	self assert: ((slide components at:1) style) equals:'<h1 class="SBTitle">titlte</h1>'
+	self assert: ((slide components at:1) style) equals:'<h1 class="SBTitle NormalTitle">titlte</h1>'
+]
+
+{ #category : #test }
+SBSlideTest >> testNextIndex [
+
+	|slide next|
+	slide := SBSlide new:'titlte'.
+	slide index: 2.
+	next := slide nextIndex: 2.
+	self assert: next equals:'1'.
+]
+
+{ #category : #test }
+SBSlideTest >> testPrevIndex [
+
+	|slide next|
+	slide := SBSlide new:'titlte'.
+	slide index: 1.
+	next := slide prevIndex: 2.
+	self assert: next equals:'2'.
+]
+
+{ #category : #test }
+SBSlideTest >> testSpecialSlide [
+	
+	|slide|
+	slide := (SBSlide new:'titlte') specialSlide.
+	self assert: (slide components at: 1) level equals:'SpecialTitle'.
 ]
 
 { #category : #test }

@@ -13,7 +13,7 @@ SBServerTest >> testAddSlide [
 	| server slide slides|
 	server := SBServer new: 8080.
 	slide := SBSlide new: 'title'.
-	server addSlide: slide index:1.
+	server addSlide: slide.
 	slides := (OrderedCollection new).
 	slides add: slide.
 	self assertCollection: server slides hasSameElements:slides.
@@ -25,7 +25,7 @@ SBServerTest >> testAddSlideIndex [
 	| server slide slides|
 	server := SBServer new: 8080.
 	slide := SBSlide new: 'title'.
-	server addSlide: slide index:1.
+	server addSlide: slide.
 	slides := (OrderedCollection new).
 	slides add: slide.
 	self assertCollection: server slides hasSameElements:slides.
