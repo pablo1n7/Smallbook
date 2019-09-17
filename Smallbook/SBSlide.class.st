@@ -6,27 +6,11 @@ Class {
 		'components',
 		'styleCSS'
 	],
+	#classVars : [
+		'style'
+	],
 	#category : #Smallbook
 }
-
-{ #category : #constants }
-SBSlide class >> javascript [
-	"comment stating purpose of message"
-	^'
-		<link rel="stylesheet"
-      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/default.min.css">
-		<script ></script>
-		<script>
-		function format(){
-    		var b=document.getElementsByTagName("pre");
-    		for (i=0;b.length;i++) {
-    			hljs.highlightBlock(b[i],false);
-    		}
-		}
-		format()
-		</script>
-	'
-]
 
 { #category : #'instance creation' }
 SBSlide class >> new: aText [
@@ -35,156 +19,41 @@ SBSlide class >> new: aText [
 	| slide |
 	slide := self new.
 	slide text: aText.
+	slide styleCSS: self style.
 	slide addComponents: (SBTitle new: slide text).
 	^ slide
 ]
 
-{ #category : #constants }
-SBSlide class >> simpleStyle [
+{ #category : #'instance creation' }
+SBSlide class >> new: aText style: aStyle [
 	"comment stating purpose of message"
-	^'
-	<style>
-	.SpecialTitle{
-		text-aling:center;
-		font-size:3.5em;
-	}
-	
-	.NormalTitle{
-	
-	}
-	
-	.SBSlide{
-		font-size:3em;
-		margin: 1em;
-	}
-	.SBTitle{
-	}
 
-	.SBParagrah {
- 		padding-top: 2%;
-	}
-	
-	.SBCode {
-		padding: 0% !import;
- 		padding-left: 4%;
-		font-family: Droid Sans Mono;
-		font-size: 0.8em;
-	}
-	
-	.Control{
-		text-align:center;
-		font-size:1.5em;
-	}
-	
-	.Next{
-		padding-left: 5%;
-	}
-	
-	.Prev{
-		padding-right: 5%;
-	}
-	
-	a {
- 		color: inherit; /* blue colors for links too */
-  	 	text-decoration: inherit; /* no underline */
-	}
-	
-	.Left{
-		text-align: left !important;
-	}
-	
-	.Right{
-		text-align: right !important;
-	}
-	
-	.Center{
-		text-align: center !important;
-	}
-	
-	</style>
-	'
+	| slide |
+	slide := self new: aText.
+	slide styleCSS: aStyle.
+	^ slide
 ]
 
-{ #category : #constants }
-SBSlide class >> simpleStyleInv [
-	"comment stating purpose of message"
-	^'
-	<style>
-	body{
-		background-color: black;
-		color: white;
-	}
-	
-	.SpecialTitle{
-		text-aling:center;
-		font-size:3.5em;
-	}
-	
-	.NormalTitle{
-	
-	}
-	
-	.SBSlide{
-		font-size:3em;
-		margin: 1em;
-	}
-	.SBTitle{
-	}
+{ #category : #accessing }
+SBSlide class >> style [ 
+	(style) ifNil: [^'default'].
+	^style
+]
 
-	.SBParagrah {
- 		padding-top: 2%;
-	}
-	
-	.hljs {
-		margin:0%;
-		padding:0%;
-		padding-left:4%;
-	}
-	
-	.hljs-constant{
-		color:cadetblue;
-	}
-	
-	.SBCode {
- 		padding-left: 4%;
-		font-family: Droid Sans Mono;
-		font-size: 0.8em;
-	}
-	
-	
-	
-	.Control{
-		text-align:center;
-		font-size:1.5em;
-	}
-	a {
- 		color: inherit; /* blue colors for links too */
-  	 	text-decoration: inherit; /* no underline */
-	}
-	
-	.Next{
-		padding-left: 5%;
-	}
-	
-	.Prev{
-		padding-right: 5%;
-	}
-	
-	.Left{
-		text-align: left !important;
-	}
-	
-	.Right{
-		text-align: right !important;
-	}
-	
-	.Center{
-		text-align: center !important;
-	}
-	
-	
-	</style>
-	'
+{ #category : #accessing }
+SBSlide class >> style: aStyle [
+	style := aStyle
+]
+
+{ #category : #action }
+SBSlide >> _style: aSize [
+	"comment stating purpose of message"
+	|string|
+	string := self class javascript,'<body><link rel="stylesheet" href="/static-files/base.css"><link rel="stylesheet" href="/static-files/',self styleCSS ,'.css"><div class="Control" > <a class="Prev" href="/',((self prevIndex: aSize) asString),'"><<<a/> ',(self index asString),' / ',(aSize asString),' <a class="Next" href="/',((self nextIndex: aSize) asString),'">>><a/></div><div class="SBSlide">'.
+	(self components) do: [ :each |
+		string := string, (each style)].
+	^ string,'</div></body>'
+
 ]
 
 { #category : #action }
@@ -216,8 +85,7 @@ SBSlide >> index: anObject [
 { #category : #initialization }
 SBSlide >> initialize [
 	"comment stating purpose of message"
-	self components: OrderedCollection new.
-	self styleCSS: self class simpleStyleInv. 
+	self components: OrderedCollection new. 
 ]
 
 { #category : #action }
@@ -248,9 +116,20 @@ SBSlide >> specialSlide [
 SBSlide >> style: aSize [
 	"comment stating purpose of message"
 	|string|
-	string := self class javascript,'<body>',self styleCSS ,'<div class="Control" > <a class="Prev" href="/',((self prevIndex: aSize) asString),'"><<<a/> ',(self index asString),' / ',(aSize asString),' <a class="Next" href="/',((self nextIndex: aSize) asString),'">>><a/></div><div class="SBSlide">'.
+	string := 
+	'<body>
+	<link rel="stylesheet" href="/static-files/highlight.css">
+	<script src="/static-files/highlight.js"></script>
+	<script src="/static-files/base.js"></script>
+	<link rel="stylesheet" href="/static-files/base.css">
+	<link rel="stylesheet" href="/static-files/',self styleCSS ,'.css">
+	<div class="Control" > 
+	<a class="Prev" href="/',((self prevIndex: aSize) asString),'"><<<a/> ',(self index asString),' / ',(aSize asString),' 
+	<a class="Next" href="/',((self nextIndex: aSize) asString),'">>><a/></div>
+	<div class="SBSlide">'.
 	(self components) do: [ :each |
 		string := string, (each style)].
+	
 	^ string,'</div></body>'
 
 ]

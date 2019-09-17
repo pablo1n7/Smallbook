@@ -56,13 +56,11 @@ SBServer >> initialize [
 	self slides: OrderedCollection new.
 	self host: 'localhost'.
 	self delegator: ZnDefaultServerDelegate new.
-	
-	path := (((FileLocator imageDirectory) / 'pharo-local/iceberg/pablo1n7/Smallbook/statics') pathString).
+	path := (((FileLocator imageDirectory) / 'pharo-local/iceberg/pablo1n7/Smallbook/StaticFiles') pathString).
 	staticFileServerDelegate :=  ZnStaticFileServerDelegate new directory: path asFileReference; prefixFromString: 'static-files'.
 	self delegator prefixMap 
 			at: 'static-files'
          put: [ :request | staticFileServerDelegate handleRequest: request].
-	
 	self delegator
 			map: '/'
          to:'1'.
