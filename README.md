@@ -4,23 +4,27 @@ Pharo lib.
 
 ```smalltalk
 server := SBServer new: 8080.
+SBSlide style:'simple_light'.
 ```
 
-# Principal Slide in localhost:8080/.
+# Principal Slide in localhost:8080/1.
 ```smalltalk
-slide := (SBSlide new:'Introducción a Pharo') specialSlide.
-slide addComponents: (SBParagrah new: 'Author1, Author2').
-server addPrincipalSlide: slide.
+slide := (SBSlide new:'Smallbook') specialSlide.
+slide addComponents: (SBParagrah new: '<a href="www.github.com/pablo1n7/Smallbook"> www.github.com/pablo1n7/Smallbook </a>').
+server addSlide: slide.
 
 ```
 
-# New Slide in localhost:8080/1.
+# New Slide in localhost:8080/2.
 ```smalltalk
-slide := SBSlide new:'Asignación en Pharo'.
-slide addComponents: (SBParagrah new: '¿Como hacemos una asignación?').
-slide addComponents: (SBCode new: 'number := 20.').
-slide addComponents: (SBCode new: 'listInteger := #(1 2 3 4 5).').
-server addSlide: slide index: 1.
+slide := SBSlide new:'Literals in Pharo Smalltalk' style:'simple_light'.
+slide addComponents: (SBParagrah new: 'Examples').
+slide addComponents: (SBCode new: '
+|number string list|
+number := 20.
+string := ''String''.
+list := #(1 2 3 4 5).
+').
 ```
 
 # Start Server listening to port 8080.
