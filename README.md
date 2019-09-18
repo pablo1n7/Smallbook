@@ -40,3 +40,5 @@ server stop.
 ```
 
 # Styles
+
+![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/styles.png))
