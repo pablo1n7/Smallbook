@@ -25,6 +25,7 @@ number := 20.
 string := ''String''.
 list := #(1 2 3 4 5).
 ').
+server addSlide: slide.
 ```
 
 # Start Server listening to port 8080.
