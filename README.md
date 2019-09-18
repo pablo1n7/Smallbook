@@ -9,7 +9,7 @@ server := SBServer new: 8080.
 SBSlide style:'simple_light'.
 ```
 
-## Principal Slide in localhost:8080/1.
+## Special Slide in localhost:8080/1.
 ```smalltalk
 slide := (SBSlide new:'Smallbook') specialSlide.
 slide addComponents: (SBParagrah new: '<a href="www.github.com/pablo1n7/Smallbook"> www.github.com/pablo1n7/Smallbook </a>').
