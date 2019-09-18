@@ -30,3 +30,7 @@ a {
 .Center{
 	text-align: center !important;
 }
+
+.Item{
+	font-size: 0.9em;
+}
