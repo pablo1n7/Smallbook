@@ -6,7 +6,8 @@ html, body {
 	text-align:center;
 	font-size:1.5em;
 }
-a {
+
+.Control a {
 		color: inherit; /* blue colors for links too */
 	 	text-decoration: inherit; /* no underline */
 }
