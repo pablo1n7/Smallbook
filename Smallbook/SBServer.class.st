@@ -6,7 +6,8 @@ Class {
 		'port',
 		'slides',
 		'server',
-		'delegator'
+		'delegator',
+		'staticFolder'
 	],
 	#category : #Smallbook
 }
@@ -18,6 +19,16 @@ SBServer class >> new: aPort [
 	|server|
 	server := self new.
 	server port: aPort.
+	^server
+]
+
+{ #category : #'instance creation' }
+SBServer class >> new: aPort staticFolder: aPath [
+	"comment stating purpose of message"
+
+	|server|
+	server := self new: aPort.
+	server staticFolder: aPath.
 	^server
 ]
 
@@ -52,12 +63,14 @@ SBServer >> host: anObject [
 SBServer >> initialize [ 
 	"comment stating purpose of message"
 	
-	|staticFileServerDelegate path|
+	|staticFileServerDelegate staticFileUserServerDelegate path pathUser|
 	self slides: OrderedCollection new.
 	self host: 'localhost'.
 	self delegator: ZnDefaultServerDelegate new.
 	path := (((FileLocator imageDirectory) / 'pharo-local/iceberg/pablo1n7/Smallbook/StaticFiles') pathString).
-	staticFileServerDelegate :=  ZnStaticFileServerDelegate new directory: path asFileReference; prefixFromString: 'static-files'.
+	staticFileServerDelegate :=  ZnStaticFileServerDelegate new directory: path asFileReference; 
+	prefixFromString: 'static-files'.
+		
 	self delegator prefixMap 
 			at: 'static-files'
          put: [ :request | staticFileServerDelegate handleRequest: request].
@@ -116,9 +129,27 @@ SBServer >> slides: anObject [
 
 { #category : #action }
 SBServer >> start [
+	| pathUser staticFileUserServerDelegate |
 	self server:(ZnServer startDefaultOn: self port).	 
+	pathUser := self staticFolder.
+	staticFileUserServerDelegate :=  ZnStaticFileServerDelegate new directory: pathUser asFileReference; 
+	prefixFromString: 'static-user'.
+	self delegator prefixMap 
+			at: 'static-user'
+         put: [ :request | staticFileUserServerDelegate handleRequest: request].
+
 	(self slides) do:[:each | self root: (each index) asString slide: each size:(self slides) size].
 	self server delegate: self delegator.
+]
+
+{ #category : #accessing }
+SBServer >> staticFolder [
+	^ staticFolder
+]
+
+{ #category : #accessing }
+SBServer >> staticFolder: anObject [
+	staticFolder := anObject
 ]
 
 { #category : #action }
