@@ -64,6 +64,9 @@ SBServer >> initialize [
 	self delegator
 			map: '/'
          to:'1'.
+	self delegator 
+			map: 'all'
+         to: [ :request | ZnResponse ok: (ZnEntity html: (self saveHTML:'')) ].
 ]
 
 { #category : #accessing }
@@ -80,6 +83,15 @@ SBServer >> port: anObject [
 SBServer >> root: aRoot slide: aSlide size: aSize [
 	"comment stating purpose of message"
 	self delegator map: ('',aRoot asString) to: [ :request | ZnResponse ok: (ZnEntity html: (aSlide style: aSize))]
+]
+
+{ #category : #action }
+SBServer >> saveHTML: aPath [
+	"comment stating purpose of message"
+	|pages|
+	pages := ''.
+	(self slides) do: [ :each | pages := (pages,(each style: self slides size))].
+	^pages.
 ]
 
 { #category : #accessing }
