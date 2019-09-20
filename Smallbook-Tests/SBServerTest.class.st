@@ -98,6 +98,15 @@ SBServerTest >> testStart [
 ]
 
 { #category : #test }
+SBServerTest >> testStaticFolder [
+
+	| sbserver |
+	sbserver := SBServer new: 8000.
+	sbserver staticFolder: '/home/user'.
+	self assert: sbserver staticFolder equals: '/home/user'.
+]
+
+{ #category : #test }
 SBServerTest >> testStop [
 
 	| sbserver |

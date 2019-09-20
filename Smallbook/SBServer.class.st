@@ -129,15 +129,16 @@ SBServer >> slides: anObject [
 
 { #category : #action }
 SBServer >> start [
-	| pathUser staticFileUserServerDelegate |
+	| staticFileUserServerDelegate |
 	self server:(ZnServer startDefaultOn: self port).	 
-	pathUser := self staticFolder.
-	staticFileUserServerDelegate :=  ZnStaticFileServerDelegate new directory: pathUser asFileReference; 
-	prefixFromString: 'static-user'.
-	self delegator prefixMap 
+	(self staticFolder) ifNotNil: [ 
+		staticFileUserServerDelegate :=  ZnStaticFileServerDelegate new directory: (self staticFolder) 		asFileReference; 
+		prefixFromString: 'static-user'.
+		self delegator prefixMap 
 			at: 'static-user'
          put: [ :request | staticFileUserServerDelegate handleRequest: request].
-
+	 
+	].
 	(self slides) do:[:each | self root: (each index) asString slide: each size:(self slides) size].
 	self server delegate: self delegator.
 ]
