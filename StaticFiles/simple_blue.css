@@ -4,30 +4,8 @@ body{
 	color: rgb(42, 41, 126);
 }
 	
-.SpecialTitle{
-	text-aling:center;
-	font-size:3.5em;
-}
-
-.NormalTitle{
-
-}
-
-.SBSlide{
-	font-size:3em;
-	margin: 1em;
-}
-.SBTitle{
-}
-
-.SBParagrah {
-	padding-top: 2%;
-}
 
 .hljs {
-	margin:0%;
-	padding:0%;
-	padding-left:4%;
 	background:inherit;
 	color:inherit;
 }
@@ -44,9 +22,29 @@ body{
 	color:cadetblue;
 }
 
-
 .SBCode {
-	padding-left: 4%;
-	font-family: Droid Sans Mono;
-	font-size: 0.8em;
+
+}
+	
+.SpecialTitle{
+
+}
+
+.NormalTitle{
+
+}
+
+.SBSlide{
+
+}
+
+.SBTitle{
+
+}
+
+.SBParagrah {
+}
+
+.SBParagrah {
+
 }

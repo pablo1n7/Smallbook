@@ -1,10 +1,33 @@
 html, body {
-  overflow: hidden;
+  
 }
 
 .Control{
 	text-align:center;
 	font-size:1.5em;
+}
+
+.SBCode {
+	padding-left: 4%;
+	font-family: Droid Sans Mono;
+	font-size: 0.8em;
+	
+
+}
+
+.SBSlide{
+	font-size:3em;
+	margin: 1em;
+	height: 100%;
+}
+	
+.SpecialTitle{
+	font-size:3.5em;
+}
+
+
+.Item{
+	font-size: 0.9em;
 }
 
 .Control a {
@@ -32,6 +55,25 @@ html, body {
 	text-align: center !important;
 }
 
-.Item{
-	font-size: 0.9em;
+.NormalTitle{
+
+}
+
+.SBTitle{
+
+}
+
+.SBParagrah {
+	padding-top: 2%;
+}
+
+.hljs {
+	margin:0%;
+	padding:0%;
+	padding-left:4%;
+}
+
+
+.SBParagrah {
+	padding-top: 2%;
 }
