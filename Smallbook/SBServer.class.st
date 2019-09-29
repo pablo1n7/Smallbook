@@ -61,7 +61,7 @@ SBServer >> host: anObject [
 
 { #category : #initialization }
 SBServer >> initialize [ 
-	"comment stating purpose of message"
+	"This message initializes the server"
 	
 	|staticFileServerDelegate staticFileUserServerDelegate path pathUser|
 	self slides: OrderedCollection new.
