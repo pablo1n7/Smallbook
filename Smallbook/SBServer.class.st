@@ -138,6 +138,7 @@ SBServer >> start [
 	].
 	(self slides) do:[:each | self root: (each index) asString slide: each size:(self slides) size].
 	self server delegate: self delegator.
+	WebBrowser openOn:('http:/',self host,':',self port asString).	
 ]
 
 { #category : #accessing }
