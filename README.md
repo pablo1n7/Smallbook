@@ -1,6 +1,6 @@
 # Smallbook
 
-Pharo lib.
+Smallbook is a tool for creating presentations with basic slides and show them in a web browser. Programmed in Pharo for Pharo :) 
 
 # Basic usage
 
