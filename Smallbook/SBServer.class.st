@@ -61,13 +61,13 @@ SBServer >> host: anObject [
 
 { #category : #initialization }
 SBServer >> initialize [ 
-	"comment stating purpose of message"
+	"This message initializes the server"
 	
 	|staticFileServerDelegate staticFileUserServerDelegate path pathUser|
 	self slides: OrderedCollection new.
 	self host: 'localhost'.
 	self delegator: ZnDefaultServerDelegate new.
-	path := (((FileLocator imageDirectory) / 'pharo-local/iceberg/pablo1n7/Smallbook/StaticFiles') pathString).
+	path := (((FileLocator imageDirectory) / 'pharo-local/iceberg/papablo/Smallbook/StaticFiles') pathString).
 	staticFileServerDelegate :=  ZnStaticFileServerDelegate new directory: path asFileReference; 
 	prefixFromString: 'static-files'.
 		
