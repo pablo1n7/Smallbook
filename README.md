@@ -5,7 +5,7 @@ Pharo lib.
 # Basic usage
 
 ```smalltalk
-server := SBServer new: 8080.
+server := SBServer new: 8080 staticFolder: ('/MY/DIR/USER/STATIC/userStatic').
 SBSlide style:'simple_light'.
 ```
 
@@ -27,6 +27,13 @@ number := 20.
 string := ''String''.
 list := #(1 2 3 4 5).
 ').
+server addSlide: slide.
+```
+
+## New Slide in localhost:8080/3.
+```smalltalk
+slide := SBSlide new:'Pharo'.
+slide addComponents: (SBImage new: 'https://pharo.org/web/files/pharo.png' align: 'Center' percentSize:40).
 server addSlide: slide.
 ```
 
