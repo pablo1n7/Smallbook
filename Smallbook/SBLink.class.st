@@ -30,7 +30,7 @@ SBLink >> href: anObject [
 	href := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #action }
 SBLink >> style [
 	"Return styling of link"
 	^'<a class="SBLink" href="',self href,'">',self text,'</a>'.

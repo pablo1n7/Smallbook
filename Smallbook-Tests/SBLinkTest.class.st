@@ -1,3 +1,6 @@
+"
+A SBLinkTest is a test class for testing the behavior of SBLink
+"
 Class {
 	#name : #SBLinkTest,
 	#superclass : #TestCase,
