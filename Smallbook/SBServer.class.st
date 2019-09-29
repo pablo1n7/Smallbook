@@ -63,7 +63,7 @@ SBServer >> host: anObject [
 SBServer >> initialize [ 
 	"This message initializes the server"
 	
-	|staticFileServerDelegate staticFileUserServerDelegate path pathUser|
+	|staticFileServerDelegate path |
 	self slides: OrderedCollection new.
 	self host: 'localhost'.
 	self delegator: ZnDefaultServerDelegate new.
@@ -76,7 +76,7 @@ SBServer >> initialize [
          put: [ :request | staticFileServerDelegate handleRequest: request].
 	self delegator
 			map: '/'
-         to:'1'.
+         to:'1.html'.
 ]
 
 { #category : #accessing }
@@ -92,16 +92,14 @@ SBServer >> port: anObject [
 { #category : #action }
 SBServer >> root: aRoot slide: aSlide size: aSize [
 	"comment stating purpose of message"
-	self delegator map: ('',aRoot asString) to: [ :request | ZnResponse ok: (ZnEntity html: (aSlide style: aSize))]
+	self delegator map: ('',aRoot asString,'.html') to: [ :request | ZnResponse ok: (ZnEntity html: (aSlide style: aSize))]
 ]
 
 { #category : #action }
 SBServer >> saveHTML: aPath [
 	"comment stating purpose of message"
-	|pages|
-	pages := ''.
-	(self slides) do: [ :each | pages := (pages,(each style: self slides size))].
-	^pages.
+	
+	(self slides) do: [ :each | each saveHTML:(self slides size) in:aPath].
 ]
 
 { #category : #accessing }

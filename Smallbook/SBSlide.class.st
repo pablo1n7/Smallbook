@@ -64,9 +64,9 @@ SBSlide >> components: anObject [
 { #category : #accessing }
 SBSlide >> controlHTML: aSize [
 	^'<div class="Control" > 
-	<a class="Prev" href="/',((self prevIndex: aSize) asString),'">
+	<a class="Prev" href="/',((self prevIndex: aSize) asString),'.html">
 	<<<a/>',(self index asString),' / ',(aSize asString),' 
-	<a class="Next" href="/',((self nextIndex: aSize) asString),'">>>
+	<a class="Next" href="/',((self nextIndex: aSize) asString),'.html">>>
 	<a/></div>'
 ]
 
@@ -114,6 +114,14 @@ SBSlide >> prevIndex: aSize [
 	| aIndexPrev |
 	aIndexPrev := (self index - 1).
 	(aIndexPrev = 0) ifTrue: [  ^aSize asString]; ifFalse: [  ^aIndexPrev asString].
+]
+
+{ #category : #accessing }
+SBSlide >> saveHTML: aSize in: aPath [ 
+	|aStream|
+	aStream:=File 	openForWriteFileNamed:aPath,'/',self index asString,'.html'.
+	aStream nextPutAll:(self style:aSize).
+	aStream close.
 ]
 
 { #category : #action }
