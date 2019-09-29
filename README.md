@@ -17,7 +17,7 @@ slide addComponents: (SBParagrah new: 'Smallbook is a tool for creating presenta
 server addSlide: slide.
 
 ```
-![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/slide_1.png)
+![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/slide_1.jpg)
 
 
 ## New Slide in localhost:8080/2.
@@ -34,7 +34,7 @@ list do: [ :each | Transcript show: each;cr. ]
 ').
 server addSlide: slide.
 ```
-![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/slide_2.png)
+![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/slide_2.jpg)
 
 
 ## New Slide in localhost:8080/3.
@@ -44,7 +44,7 @@ slide addComponents: (SBParagrah new:'Pharo is a pure object-oriented programmin
 slide addComponents: (SBImage new: 'https://pharo.org/web/files/pharo.png' align: 'Center' percentSize:40).
 server addSlide: slide.
 ```
-![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/slide_3.png)
+![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/slide_3.jpg)
 
 
 ## New Slide in localhost:8080/3.
