@@ -11,8 +11,6 @@ html, body {
 	padding-left: 4%;
 	font-family: Droid Sans Mono;
 	font-size: 0.8em;
-	
-
 }
 
 .SBSlide{
@@ -20,14 +18,29 @@ html, body {
 	margin: 1em;
 	height: 100%;
 }
+
+.NormalTitle{
+
+}
+
+.SBTitle{
+
+}
+
+.SBParagrah {
+	padding-top: 2%;
+}
 	
 .SpecialTitle{
 	font-size:3.5em;
 }
 
+.SBList{
+	list-style-type:circle;
+}
 
-.Item{
-	font-size: 0.9em;
+.SBItemList{
+	font-size: 0.8em;
 }
 
 .Control a {
@@ -55,25 +68,8 @@ html, body {
 	text-align: center !important;
 }
 
-.NormalTitle{
-
-}
-
-.SBTitle{
-
-}
-
-.SBParagrah {
-	padding-top: 2%;
-}
-
 .hljs {
 	margin:0%;
 	padding:0%;
 	padding-left:4%;
-}
-
-
-.SBParagrah {
-	padding-top: 2%;
 }
