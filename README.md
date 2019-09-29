@@ -46,14 +46,6 @@ server addSlide: slide.
 ```
 ![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/slide_3.jpg)
 
-
-## New Slide in localhost:8080/3.
-```smalltalk
-slide := SBSlide new:'Pharo'.
-slide addComponents: (SBImage new: 'https://pharo.org/web/files/pharo.png' align: 'Center' percentSize:40).
-server addSlide: slide.
-```
-
 ## Start Server listening to port 8080.
 ```smalltalk
 server start. 
