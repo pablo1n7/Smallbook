@@ -58,3 +58,9 @@ server stop.
 # Styles
 
 ![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/styles.png)
+
+# TODO: 
+* [ ] Export to HTML or PDF.
+* [ ] Create SBSlide from file.
+* [ ] More components.
+
