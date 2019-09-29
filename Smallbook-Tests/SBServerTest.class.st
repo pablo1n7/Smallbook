@@ -92,7 +92,7 @@ SBServerTest >> testStart [
 
 	| sbserver |
 	sbserver := SBServer new: 8000.
-	sbserver start.
+	sbserver startwithoutBrowser.
 	self assert: sbserver server isRunning.
 	sbserver stop.
 ]
@@ -111,7 +111,7 @@ SBServerTest >> testStop [
 
 	| sbserver |
 	sbserver := SBServer new: 8000.
-	sbserver start.
+	sbserver startwithoutBrowser.
 	sbserver stop.
 	self assert: sbserver server isRunning  equals: false.
 ]

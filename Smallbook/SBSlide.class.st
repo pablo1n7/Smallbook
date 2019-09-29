@@ -20,7 +20,7 @@ SBSlide class >> new: aText [
 	slide := self new.
 	slide text: aText.
 	slide styleCSS: self style.
-	slide addComponents: (SBTitle new: slide text).
+	slide addComponent: (SBTitle new: slide text).
 	^ slide
 ]
 
@@ -46,7 +46,7 @@ SBSlide class >> style: aStyle [
 ]
 
 { #category : #action }
-SBSlide >> addComponents: aComponent [
+SBSlide >> addComponent: aComponent [
 	"comment stating purpose of message"
 	self components add: aComponent.
 ]

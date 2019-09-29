@@ -8,13 +8,13 @@ Class {
 }
 
 { #category : #test }
-SBSlideTest >> testAddComponents [
+SBSlideTest >> testAddComponent [
 
 	|slide component components|
 	slide := SBSlide new.
 	components := OrderedCollection new.
 	component := SBComponent new:'title'.
-	slide addComponents: component.
+	slide addComponent: component.
 	components add: component.
 	self assertCollection: slide components hasSameElements: components.
 ]

@@ -124,6 +124,12 @@ SBServer >> slides: anObject [
 
 { #category : #action }
 SBServer >> start [
+	self startwithoutBrowser.
+	WebBrowser openOn:('http:/',self host,':',self port asString).	
+]
+
+{ #category : #action }
+SBServer >> startwithoutBrowser [
 	| staticFileUserServerDelegate |
 	self server:(ZnServer startDefaultOn: self port).	 
 	(self staticFolder) ifNotNil: [ 
@@ -135,8 +141,7 @@ SBServer >> start [
 	 
 	].
 	(self slides) do:[:each | self root: (each index) asString slide: each size:(self slides) size].
-	self server delegate: self delegator.
-	WebBrowser openOn:('http:/',self host,':',self port asString).	
+	self server delegate: self delegator.	
 ]
 
 { #category : #accessing }
