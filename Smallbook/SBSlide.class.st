@@ -46,17 +46,6 @@ SBSlide class >> style: aStyle [
 ]
 
 { #category : #action }
-SBSlide >> _style: aSize [
-	"comment stating purpose of message"
-	|string|
-	string := self class javascript,'<body><link rel="stylesheet" href="/static-files/base.css"><link rel="stylesheet" href="/static-files/',self styleCSS ,'.css"><div class="Control" > <a class="Prev" href="/',((self prevIndex: aSize) asString),'"><<<a/> ',(self index asString),' / ',(aSize asString),' <a class="Next" href="/',((self nextIndex: aSize) asString),'">>><a/></div><div class="SBSlide">'.
-	(self components) do: [ :each |
-		string := string, (each style)].
-	^ string,'</div></body>'
-
-]
-
-{ #category : #action }
 SBSlide >> addComponents: aComponent [
 	"comment stating purpose of message"
 	self components add: aComponent.
@@ -70,6 +59,27 @@ SBSlide >> components [
 { #category : #accessing }
 SBSlide >> components: anObject [
 	components := anObject
+]
+
+{ #category : #accessing }
+SBSlide >> controlHTML: aSize [
+	^'<div class="Control" > 
+	<a class="Prev" href="/',((self prevIndex: aSize) asString),'">
+	<<<a/>',(self index asString),' / ',(aSize asString),' 
+	<a class="Next" href="/',((self nextIndex: aSize) asString),'">>>
+	<a/></div>'
+]
+
+{ #category : #accessing }
+SBSlide >> headHTML [
+	^'<head>
+	<meta name="viewport" content= "width=device-width, initial-scale=1.0"> </head>
+	<link rel="stylesheet" href="/static-files/highlight.css">
+	<script src="/static-files/highlight.js"></script>
+	<script src="/static-files/base.js"></script>
+	<link rel="stylesheet" href="/static-files/base.css">
+	<link rel="stylesheet" href="/static-files/',self styleCSS,'.css">
+	</head>'
 ]
 
 { #category : #accessing }
@@ -116,17 +126,8 @@ SBSlide >> specialSlide [
 SBSlide >> style: aSize [
 	"comment stating purpose of message"
 	|string|
-	string := 
-	'<body>
-	<link rel="stylesheet" href="/static-files/highlight.css">
-	<script src="/static-files/highlight.js"></script>
-	<script src="/static-files/base.js"></script>
-	<link rel="stylesheet" href="/static-files/base.css">
-	<link rel="stylesheet" href="/static-files/',self styleCSS ,'.css">
-	<div class="Control" > 
-	<a class="Prev" href="/',((self prevIndex: aSize) asString),'"><<<a/> ',(self index asString),' / ',(aSize asString),' 
-	<a class="Next" href="/',((self nextIndex: aSize) asString),'">>><a/></div>
-	<div class="SBSlide">'.
+	string := self headHTML,'<body>',(self controlHTML: aSize),
+	'<div class="SBSlide">'.
 	(self components) do: [ :each |
 		string := string, (each style)].
 	

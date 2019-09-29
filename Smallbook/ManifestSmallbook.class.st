@@ -14,5 +14,5 @@ ManifestSmallbook class >> ruleRBModifiesCollectionRuleV1FalsePositive [
 
 { #category : #'code-critics' }
 ManifestSmallbook class >> ruleRBStringConcatenationRuleV1FalsePositive [
-	^ #(#(#(#RGMethodDefinition #(#SBSlide #style #false)) #'2019-09-16T10:15:21.000311-03:00') )
+	^ #(#(#(#RGMethodDefinition #(#SBSlide #style #false)) #'2019-09-16T10:15:21.000311-03:00') #(#(#RGMethodDefinition #(#SBSlide #style: #false)) #'2019-09-29T10:36:39.17603-03:00') )
 ]

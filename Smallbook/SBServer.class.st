@@ -77,9 +77,6 @@ SBServer >> initialize [
 	self delegator
 			map: '/'
          to:'1'.
-	self delegator 
-			map: 'all'
-         to: [ :request | ZnResponse ok: (ZnEntity html: (self saveHTML:'')) ].
 ]
 
 { #category : #accessing }
