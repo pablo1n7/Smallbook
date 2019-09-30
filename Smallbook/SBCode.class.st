@@ -6,8 +6,7 @@ Class {
 
 { #category : #action }
 SBCode >> style [
-	"comment stating purpose of message"
-	"^'<p class=SBCode>',self text,'</p>'."
+	"Returns the HTML code needed to add a block of highlighted code in a slide."
 	^'<pre class="smalltalk SBCode"><code>', self text,'</code></pre><script>format()</script>'
 
 ]
