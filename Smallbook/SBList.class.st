@@ -9,7 +9,7 @@ Class {
 
 { #category : #action }
 SBList >> addItem: aSBComponent [
-	"comment stating purpose of message"
+	"Add a new item to the list."
 	self items add: aSBComponent.
 ]
 
@@ -20,17 +20,19 @@ SBList >> initialize [
 
 { #category : #accessing }
 SBList >> items [
+	"Returns the list items"
 	^ items
 ]
 
 { #category : #accessing }
 SBList >> items: anObject [
+	"Sets the items for the list"
 	items := anObject
 ]
 
 { #category : #action }
 SBList >> style [
-	"comment stating purpose of message"
+	"Populates and return the HTML <ul> component"
 	|htmlUl|
 	htmlUl:='<ul class="SBList">',self text.
 	(self items) do: [ :each |
@@ -40,6 +42,6 @@ SBList >> style [
 
 { #category : #action }
 SBList >> styleItem: aSBComponent [
-	"comment stating purpose of message"
-	^'<ul class="SBItemList">',aSBComponent style,'</ul>'.
+	"Returns the HTML code for the list items"
+	^'<li class="SBItemList">',aSBComponent style,'</li>'.
 ]

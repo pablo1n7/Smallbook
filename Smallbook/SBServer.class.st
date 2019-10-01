@@ -14,7 +14,7 @@ Class {
 
 { #category : #'instance creation' }
 SBServer class >> new: aPort [
-	"comment stating purpose of message"
+	"Creates a new server instance ready to serve in the specified port."
 
 	|server|
 	server := self new.
@@ -24,7 +24,7 @@ SBServer class >> new: aPort [
 
 { #category : #'instance creation' }
 SBServer class >> new: aPort staticFolder: aPath [
-	"comment stating purpose of message"
+	"Creates a new server instance ready to serve in the specified port and from the specified static folder."
 
 	|server|
 	server := self new: aPort.
@@ -34,28 +34,32 @@ SBServer class >> new: aPort staticFolder: aPath [
 
 { #category : #action }
 SBServer >> addSlide: aSlide [
-	"comment stating purpose of message"
+	"Adds a new slide."
 	aSlide index: ((self slides size) +1).
 	self slides add: aSlide.
 ]
 
 { #category : #accessing }
 SBServer >> delegator [
+	"Returns the server delegator"
 	^ delegator
 ]
 
 { #category : #accessing }
 SBServer >> delegator: anObject [
+	"Sets a delegator for the server"
 	delegator := anObject
 ]
 
 { #category : #accessing }
 SBServer >> host [
+	"Returns the host name."
 	^ host
 ]
 
 { #category : #accessing }
 SBServer >> host: anObject [
+	"Sets the host name."
 	host := anObject
 ]
 
@@ -81,11 +85,13 @@ SBServer >> initialize [
 
 { #category : #accessing }
 SBServer >> port [
+	"Returns the server's port."
 	^ port
 ]
 
 { #category : #accessing }
 SBServer >> port: anObject [
+	"Sets the server's port."
 	port := anObject
 ]
 
@@ -97,7 +103,7 @@ SBServer >> root: aRoot slide: aSlide size: aSize [
 
 { #category : #action }
 SBServer >> saveHTML: aPath [
-	"comment stating purpose of message"
+	"Saves the slides in .html files in the specified path."
 	|staticPath exportPath|
 	(aPath last = '/') ifTrue:[exportPath:=aPath,'exportHTML/']; 
 									ifFalse:[exportPath:=aPath, '/exportHTML/'].
@@ -111,32 +117,38 @@ SBServer >> saveHTML: aPath [
 
 { #category : #accessing }
 SBServer >> server [
+	"Returns the server instance"
 	^ server
 ]
 
 { #category : #accessing }
 SBServer >> server: anObject [
+	"Sets a new server"
 	server := anObject
 ]
 
 { #category : #accessing }
 SBServer >> slides [
+	"Returns the slides"
 	^ slides
 ]
 
 { #category : #accessing }
 SBServer >> slides: anObject [
+	"Sets the slides"
 	slides := anObject
 ]
 
 { #category : #action }
 SBServer >> start [
+	"Starts the server and opens the slides in a web browser."
 	self startwithoutBrowser.
 	WebBrowser openOn:('http:/',self host,':',self port asString).	
 ]
 
 { #category : #action }
 SBServer >> startwithoutBrowser [
+	"Starts the server without opening the browser."
 	| staticFileUserServerDelegate |
 	self server:(ZnServer startDefaultOn: self port).	 
 	(self staticFolder) ifNotNil: [ 
@@ -153,16 +165,18 @@ SBServer >> startwithoutBrowser [
 
 { #category : #accessing }
 SBServer >> staticFolder [
+	"Returns the static folder."
 	^ staticFolder
 ]
 
 { #category : #accessing }
 SBServer >> staticFolder: anObject [
+	"Sets a static folder."
 	staticFolder := anObject
 ]
 
 { #category : #action }
 SBServer >> stop [
-
+	"Stops the server instance."
 	self server stop.
 ]

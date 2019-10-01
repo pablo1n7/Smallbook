@@ -9,7 +9,7 @@ Class {
 
 { #category : #'instance creation' }
 SBComponent class >> new: aText [
-	"comment stating purpose of message"
+	"Creates a generic component (text)"
 
 	| component |
 	component := self new.
@@ -19,16 +19,18 @@ SBComponent class >> new: aText [
 
 { #category : #accessing }
 SBComponent >> style [
-	"comment stating purpose of message"
+	"Returns the component style."
 	self subclassResponsibility.
 ]
 
 { #category : #accessing }
 SBComponent >> text [
+	"Returns the component content (text)"
 	^ text
 ]
 
 { #category : #accessing }
 SBComponent >> text: anObject [
+	"Sets the component content (text)"
 	text := anObject
 ]

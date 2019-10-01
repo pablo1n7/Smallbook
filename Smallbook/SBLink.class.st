@@ -9,7 +9,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 SBLink class >> new: aText href: anHref [
-	" Create an <a> element with an href and a text"
+	"Creates a link component with an href and a text"
 	| aLink |
 	
 	aLink := self new.
@@ -22,16 +22,18 @@ SBLink class >> new: aText href: anHref [
 
 { #category : #accessing }
 SBLink >> href [
+	"Returns the link's href"
 	^ href
 ]
 
 { #category : #accessing }
 SBLink >> href: anObject [
+	"Sets the link's href"
 	href := anObject
 ]
 
 { #category : #action }
 SBLink >> style [
-	"Return styling of link"
+	"Returns the HTML code needed to add a link to the slides"
 	^'<a class="SBLink" href="',self href,'">',self text,'</a>'.
 ]

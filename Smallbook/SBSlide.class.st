@@ -14,7 +14,7 @@ Class {
 
 { #category : #'instance creation' }
 SBSlide class >> new: aText [
-	"comment stating purpose of message"
+	"Creates a new slide with text." 
 
 	| slide |
 	slide := self new.
@@ -26,7 +26,7 @@ SBSlide class >> new: aText [
 
 { #category : #'instance creation' }
 SBSlide class >> new: aText style: aStyle [
-	"comment stating purpose of message"
+	"Creates a new slide with text and style." 
 
 	| slide |
 	slide := self new: aText.
@@ -35,34 +35,39 @@ SBSlide class >> new: aText style: aStyle [
 ]
 
 { #category : #accessing }
-SBSlide class >> style [ 
+SBSlide class >> style [
+	"Returns the slide style or the default style if not defined." 
 	(style) ifNil: [^'default'].
 	^style
 ]
 
 { #category : #accessing }
 SBSlide class >> style: aStyle [
+	"Sets a slide style."
 	style := aStyle
 ]
 
 { #category : #action }
 SBSlide >> addComponent: aComponent [
-	"comment stating purpose of message"
+	"Adds a component to a slide."
 	self components add: aComponent.
 ]
 
 { #category : #accessing }
 SBSlide >> components [
+	"Returns the slide components"
 	^ components
 ]
 
 { #category : #accessing }
 SBSlide >> components: anObject [
+	"Sets the slide components"
 	components := anObject
 ]
 
 { #category : #accessing }
 SBSlide >> controlHTML: aSize [
+	"Returns the HTML code for the navigation controls."
 	^'<div class="Control" > 
 	<a class="Prev" href="/',((self prevIndex: aSize) asString),'.html">
 	<<<a/>',(self index asString),' / ',(aSize asString),' 
@@ -72,6 +77,7 @@ SBSlide >> controlHTML: aSize [
 
 { #category : #accessing }
 SBSlide >> headHTML [
+	"Returns the <head> HTML code for slides."
 	^'<head>
 	<meta name="viewport" content= "width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/static-files/highlight.css">
@@ -84,24 +90,25 @@ SBSlide >> headHTML [
 
 { #category : #accessing }
 SBSlide >> index [
+	"Returns the index of the current slide"
 	^ index
 ]
 
 { #category : #accessing }
 SBSlide >> index: anObject [
+	"Sets the index of the current slide"
 	index := anObject
 ]
 
 { #category : #initialization }
 SBSlide >> initialize [
-	"comment stating purpose of message"
+	"Creates an empty collection to store the slides."
 	self components: OrderedCollection new. 
 ]
 
 { #category : #action }
 SBSlide >> nextIndex: aSize [
-	"comment stating purpose of message"
-
+	"Returns the index of the next slide"
 	| aIndexNext |
 	aIndexNext := (self index + 1).
 	(aIndexNext > aSize) ifTrue: [  ^'1']; ifFalse: [  ^aIndexNext asString].
@@ -109,8 +116,7 @@ SBSlide >> nextIndex: aSize [
 
 { #category : #action }
 SBSlide >> prevIndex: aSize [
-	"comment stating purpose of message"
-
+	"Returns the index of the previous slide"
 	| aIndexPrev |
 	aIndexPrev := (self index - 1).
 	(aIndexPrev = 0) ifTrue: [  ^aSize asString]; ifFalse: [  ^aIndexPrev asString].
@@ -118,6 +124,7 @@ SBSlide >> prevIndex: aSize [
 
 { #category : #accessing }
 SBSlide >> saveHTML: aSize in: aPath [ 
+	"Writes the HTML code into *.html files."
 	|aStream styleHTML|	
 	aStream:=File 	openForWriteFileNamed:aPath,'/',self index asString,'.html'.
 	styleHTML:=(self style:aSize) copyReplaceAll: '="/' with:'="./'.
@@ -127,13 +134,13 @@ SBSlide >> saveHTML: aSize in: aPath [
 
 { #category : #action }
 SBSlide >> specialSlide [
-	"comment stating purpose of message"
+	"Creates a new special slide (usually the first one in the presentation)"
 	(self components at:1) level:'SpecialTitle'.
 ]
 
 { #category : #action }
 SBSlide >> style: aSize [
-	"comment stating purpose of message"
+	"Returns the HTML code needed to add slides"
 	|string|
 	string := self headHTML,'<body>',(self controlHTML: aSize),
 	'<div class="SBSlide">'.
@@ -146,10 +153,12 @@ SBSlide >> style: aSize [
 
 { #category : #accessing }
 SBSlide >> styleCSS [
+	"Returns the slide CSS style"
 	^ styleCSS
 ]
 
 { #category : #accessing }
 SBSlide >> styleCSS: anObject [
+	"Sets the slide CSS style"
 	styleCSS := anObject
 ]
