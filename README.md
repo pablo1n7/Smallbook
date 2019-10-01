@@ -55,12 +55,19 @@ server start.
 server stop.
 ```
 
+## Export HTML.
+```smalltalk
+"after start server!"
+server saveHTML: '/MY/DIR/USER/EXPORT/'.
+```
+
+
 # Styles
 
 ![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/styles.png)
 
 # TODO: 
-* [ ] Export to HTML or PDF.
+* [ ] Export to PDF.
 * [ ] Create SBSlide from file.
 * [ ] More components.
 
