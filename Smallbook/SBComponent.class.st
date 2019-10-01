@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'text'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #'instance creation' }

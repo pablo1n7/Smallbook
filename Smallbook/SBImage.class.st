@@ -6,7 +6,7 @@ Class {
 		'align',
 		'percentSize'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #'instance creation' }

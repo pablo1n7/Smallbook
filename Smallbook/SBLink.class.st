@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'href'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #'as yet unclassified' }

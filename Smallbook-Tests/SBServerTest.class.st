@@ -69,6 +69,16 @@ SBServerTest >> testPort [
 ]
 
 { #category : #test }
+SBServerTest >> testRootSlideSize [
+	|sbserver prefixMap|
+	sbserver := SBServer new: 8000.
+	sbserver root: 'index' slide: (SBSlide new: 'title') size: 1.
+	prefixMap := sbserver delegator prefixMap.
+	self assert: (prefixMap includesKey: 'index.html').
+	self assert: (prefixMap includesKey: 'blabla') not.
+]
+
+{ #category : #test }
 SBServerTest >> testServer [
 
 	| sbserver server|
@@ -89,6 +99,15 @@ SBServerTest >> testSlides [
 
 { #category : #test }
 SBServerTest >> testStart [
+	| sbserver |
+	sbserver := SBServer new: 8000.
+	sbserver startwithoutBrowser.
+	self assert: sbserver server isRunning.
+	sbserver stop.
+]
+
+{ #category : #test }
+SBServerTest >> testStartwithoutBrowser [
 
 	| sbserver |
 	sbserver := SBServer new: 8000.
