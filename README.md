@@ -22,7 +22,7 @@ server addSlide: slide.
 
 ## New Slide in localhost:8080/2.
 ```smalltalk
-slide := SBSlide new:'Literals in Pharo Smalltalk' style:'simple_light'.
+slide := SBSlide new:'Syntax in Pharo' style:'simple_light'.
 slide addComponent: (SBParagrah new: 'Examples').
 slide addComponent: (SBCode new: '
 |number string list|
