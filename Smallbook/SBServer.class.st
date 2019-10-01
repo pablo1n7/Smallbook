@@ -98,8 +98,15 @@ SBServer >> root: aRoot slide: aSlide size: aSize [
 { #category : #action }
 SBServer >> saveHTML: aPath [
 	"comment stating purpose of message"
+	|staticPath exportPath|
+	(aPath last = '/') ifTrue:[exportPath:=aPath,'exportHTML/']; 
+									ifFalse:[exportPath:=aPath, '/exportHTML/'].
 	
-	(self slides) do: [ :each | each saveHTML:(self slides size) in:aPath].
+	(FileSystem disk / exportPath) exists ifTrue:[(FileSystem disk / exportPath) deleteAll.].
+	staticPath:=(((FileLocator imageDirectory) / 'pharo-local/iceberg/pablo1n7/Smallbook/StaticFiles') pathString).
+	(FileSystem disk / staticPath) copyAllTo: FileSystem disk / (exportPath,'static-files').
+	(FileSystem disk / self staticFolder) copyAllTo: FileSystem disk / (exportPath,'static-user').
+	(self slides) do: [ :each | each saveHTML:(self slides size) in:exportPath].
 ]
 
 { #category : #accessing }

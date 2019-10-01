@@ -118,9 +118,10 @@ SBSlide >> prevIndex: aSize [
 
 { #category : #accessing }
 SBSlide >> saveHTML: aSize in: aPath [ 
-	|aStream|
+	|aStream styleHTML|	
 	aStream:=File 	openForWriteFileNamed:aPath,'/',self index asString,'.html'.
-	aStream nextPutAll:(self style:aSize).
+	styleHTML:=(self style:aSize) copyReplaceAll: '="/' with:'="./'.
+	aStream nextPutAll: styleHTML.
 	aStream close.
 ]
 
