@@ -1,7 +1,7 @@
 Class {
 	#name : #SBParagrah,
 	#superclass : #SBComponent,
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #action }

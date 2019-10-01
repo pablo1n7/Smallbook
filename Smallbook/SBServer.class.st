@@ -9,7 +9,7 @@ Class {
 		'delegator',
 		'staticFolder'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #'instance creation' }

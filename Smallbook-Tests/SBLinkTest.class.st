@@ -15,3 +15,12 @@ SBLinkTest >> testHref [
 	
 	self assert: aLink href equals: 'https://twitter.com/'.
 ]
+
+{ #category : #test }
+SBLinkTest >> testStyle [
+
+	| aLink linkHTML|
+	aLink := SBLink new: 'unTexto' href: 'https://twitter.com/'.
+	linkHTML:='<a class="SBLink" href="',aLink href,'">',aLink text,'</a>'.
+	self assert: aLink style equals: linkHTML.
+]

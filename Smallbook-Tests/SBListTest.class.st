@@ -38,6 +38,13 @@ SBListTest >> testItems [
 ]
 
 { #category : #test }
+SBListTest >> testStyle [
+
+	self flag: #toImplement.
+	self assert: false
+]
+
+{ #category : #test }
 SBListTest >> testStyleItem [
 
 	|list title|

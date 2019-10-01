@@ -9,7 +9,7 @@ Class {
 	#classVars : [
 		'style'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #'instance creation' }
@@ -73,7 +73,7 @@ SBSlide >> controlHTML: aSize [
 { #category : #accessing }
 SBSlide >> headHTML [
 	^'<head>
-	<meta name="viewport" content= "width=device-width, initial-scale=1.0"> </head>
+	<meta name="viewport" content= "width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/static-files/highlight.css">
 	<script src="/static-files/highlight.js"></script>
 	<script src="/static-files/base.js"></script>
