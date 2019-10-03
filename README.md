@@ -64,7 +64,7 @@ server saveHTML: '/MY/DIR/USER/EXPORT/'.
 
 # Styles
 
-![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/styles.png)
+![](https://raw.githubusercontent.com/pablo1n7/Smallbook/master/StaticFiles/gif_smallbook.gif)
 
 # TODO: 
 * [ ] Export to PDF.
