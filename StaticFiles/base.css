@@ -15,8 +15,7 @@ html, body {
 
 .SBSlide{
 	font-size:3em;
-	margin: 1em;
-	height: 100%;
+	padding: 0.5em;
 }
 
 .NormalTitle{
@@ -72,4 +71,22 @@ html, body {
 	margin:0%;
 	padding:0%;
 	padding-left:4%;
+}
+
+.slide-container {
+	display: flex;
+	flex-direction: column
+}
+
+@media screen and (min-width:1200px) {
+    body { font-size:110%; } /* Increase the font size */
+}
+@media screen and (min-width:1400px) {
+    html { padding:0 15%; } /* Reduce the container width */
+}
+@media screen and (min-width:1600px) {
+    body { font-size:125%; } /* Increase the font size */
+}
+@media screen and (min-width:1800px) {
+    html { padding:0 20%; } /* Reduce the container width */
 }
