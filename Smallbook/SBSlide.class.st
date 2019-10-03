@@ -37,7 +37,7 @@ SBSlide class >> new: aText style: aStyle [
 { #category : #accessing }
 SBSlide class >> style [
 	"Returns the slide style or the default style if not defined." 
-	(style) ifNil: [^'default'].
+	(style) ifNil: [^'simple_dark'].
 	^style
 ]
 
