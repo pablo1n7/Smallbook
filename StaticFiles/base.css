@@ -19,19 +19,19 @@ html, body {
 	height: 100%;
 }
 
-.NormalTitle{
+.SBTitleNormal{
 
 }
 
-.SBTitle{
-
+.SBTitleNormalSub{
+	font-size:1.4em
 }
 
 .SBParagrah {
 	padding-top: 2%;
 }
 	
-.SpecialTitle{
+.SBTitleSpecial{
 	font-size:3.5em;
 }
 
