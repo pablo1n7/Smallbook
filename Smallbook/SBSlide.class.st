@@ -9,7 +9,7 @@ Class {
 	#classVars : [
 		'style'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #'instance creation' }
@@ -125,9 +125,10 @@ SBSlide >> prevIndex: aSize [
 { #category : #accessing }
 SBSlide >> saveHTML: aSize in: aPath [ 
 	"Writes the HTML code into *.html files."
-	|aStream|
+	|aStream styleHTML|	
 	aStream:=File 	openForWriteFileNamed:aPath,'/',self index asString,'.html'.
-	aStream nextPutAll:(self style:aSize).
+	styleHTML:=(self style:aSize) copyReplaceAll: '="/' with:'="./'.
+	aStream nextPutAll: styleHTML.
 	aStream close.
 ]
 

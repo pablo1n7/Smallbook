@@ -1,7 +1,7 @@
 Class {
 	#name : #SBCode,
 	#superclass : #SBComponent,
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #action }

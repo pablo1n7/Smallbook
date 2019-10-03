@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'items'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #action }

@@ -9,7 +9,7 @@ Class {
 		'delegator',
 		'staticFolder'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #'instance creation' }
@@ -104,7 +104,15 @@ SBServer >> root: aRoot slide: aSlide size: aSize [
 { #category : #action }
 SBServer >> saveHTML: aPath [
 	"Saves the slides in .html files in the specified path."
-	(self slides) do: [ :each | each saveHTML:(self slides size) in:aPath].
+	|staticPath exportPath|
+	(aPath last = '/') ifTrue:[exportPath:=aPath,'exportHTML/']; 
+									ifFalse:[exportPath:=aPath, '/exportHTML/'].
+	
+	(FileSystem disk / exportPath) exists ifTrue:[(FileSystem disk / exportPath) deleteAll.].
+	staticPath:=(((FileLocator imageDirectory) / 'pharo-local/iceberg/pablo1n7/Smallbook/StaticFiles') pathString).
+	(FileSystem disk / staticPath) copyAllTo: FileSystem disk / (exportPath,'static-files').
+	(FileSystem disk / self staticFolder) copyAllTo: FileSystem disk / (exportPath,'static-user').
+	(self slides) do: [ :each | each saveHTML:(self slides size) in:exportPath].
 ]
 
 { #category : #accessing }

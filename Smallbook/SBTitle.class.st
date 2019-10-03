@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'level'
 	],
-	#category : #Smallbook
+	#category : #'Smallbook-Core'
 }
 
 { #category : #initialization }
