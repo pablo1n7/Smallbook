@@ -4,6 +4,12 @@ Class {
 	#category : #'Smallbook-Core'
 }
 
+{ #category : #action }
+SBParagrah >> style [
+	"Returns the HTML code needed to add a paragraph (<p>) component to the slides"
+	^'<p class="SBParagrah">',self text,'</p>'.
+]
+
 { #category : #accessing }
 SBParagrah >> text [
 	"Returns the paragraph text value"
@@ -14,11 +20,4 @@ SBParagrah >> text [
 SBParagrah >> text: aText [
 	"Sets the paragraph text value"
 	text := aText
-]
-
-
-{ #category : #action }
-SBParagrah >> style [
-	"Returns the HTML code needed to add a paragraph (<p>) component to the slides"
-	^'<p class="SBParagrah">',self text,'</p>'.
 ]

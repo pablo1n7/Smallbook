@@ -135,14 +135,28 @@ SBSlide >> saveHTML: aSize in: aPath [
 { #category : #action }
 SBSlide >> specialSlide [
 	"Creates a new special slide (usually the first one in the presentation)"
-	(self components at:1) level:'SpecialTitle'.
+	(self components at:1) level:'SBTitleSpecial'.
+]
+
+{ #category : #action }
+SBSlide >> style [
+	"Returns the HTML code needed to add slides"
+	|string|
+	string:='<div style="font-size: 0.6em;" class="SBSlide">'.
+	(self components) do: [ :each |
+		string := string, (each style)].
+	
+	^ string,'</div>'
+
 ]
 
 { #category : #action }
 SBSlide >> style: aSize [
 	"Returns the HTML code needed to add slides"
-	|string|
-	string := self headHTML,'<body>',(self controlHTML: aSize),
+	|string controlHTML|
+	controlHTML:=''.
+	(aSize ~= 1) ifTrue:[controlHTML:=(self controlHTML: aSize)].
+	string := self headHTML,'<body>',controlHTML,
 	'<div class="SBSlide">'.
 	(self components) do: [ :each |
 		string := string, (each style)].

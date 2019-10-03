@@ -12,7 +12,7 @@ SBTitleTest >> testInitialize [
 
 	|title|
 	title := SBTitle new: 'title'.
-	self assert: title level equals: 'NormalTitle'.
+	self assert: title level equals: 'SBTitleNormal'.
 ]
 
 { #category : #test }
