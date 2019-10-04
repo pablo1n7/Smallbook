@@ -38,17 +38,11 @@ SBListTest >> testItems [
 ]
 
 { #category : #test }
-SBListTest >> testStyle [
-
-	self flag: #toImplement.
-	self assert: false
-]
-
-{ #category : #test }
 SBListTest >> testStyleItem [
 
 	|list title|
 	title:= SBTitle new: 'text'. 
 	list:= SBList new:'text'.
-	self assert: (list styleItem: title) equals: '<ul class="SBItemList">',title style,'</ul>'
+	list addItem: title.
+	self assert: (list styleItem: title) equals: '<li class="SBItemList">',title style,'</li>'
 ]
