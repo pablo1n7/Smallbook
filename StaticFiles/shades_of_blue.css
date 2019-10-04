@@ -1,0 +1,38 @@
+.Control{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size:1.2em;
+    padding: 10 0;
+    background-color: #23374d;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+.SBSlide{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2em;
+    padding: 0 20px;
+    flex-grow: 2;
+    background-color: #1089ff;
+    color: #fff
+}
+
+img {
+    background: rgba(255,255,255, .5);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+pre {
+    background-color: #23374d !important;
+}
+
+
+.SBTitleSpecial{
+    font-size:3.5em;
+    text-shadow: 1px 2px 3px rgba(0,0,0,.3)
+}
