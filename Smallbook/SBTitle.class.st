@@ -10,7 +10,7 @@ Class {
 { #category : #initialization }
 SBTitle >> initialize [ 
 	"Sets a default slide title level"
-	self level:'NormalTitle'.
+	self level:'SBTitleNormal'.
 ]
 
 { #category : #accessing }

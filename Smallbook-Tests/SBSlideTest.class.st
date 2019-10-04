@@ -44,7 +44,7 @@ SBSlideTest >> testInitialize [
 	slide := SBSlide new:'titlte'.
 	self assert: slide components size equals:1.
 	self assert: (slide components at:1) text equals:'titlte'.
-	self assert: ((slide components at:1) style) equals:'<h1 class="SBTitle NormalTitle">titlte</h1>'
+	self assert: ((slide components at:1) style) equals:'<h1 class="SBTitle SBTitleNormal">titlte</h1>'
 ]
 
 { #category : #test }
@@ -72,7 +72,7 @@ SBSlideTest >> testSpecialSlide [
 	
 	|slide|
 	slide := (SBSlide new:'titlte') specialSlide.
-	self assert: (slide components at: 1) level equals:'SpecialTitle'.
+	self assert: (slide components at: 1) level equals:'SBTitleSpecial'.
 ]
 
 { #category : #test }
