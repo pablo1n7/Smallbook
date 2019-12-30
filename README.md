@@ -22,7 +22,7 @@ SBSlide style:'simple_light'.
 ```smalltalk
 
 slide:=(SBSlide new:'Smallbook') specialSlide.
-slide addComponent: (SBParagrah new: 'Smallbook is a tool for creating presentations with basic slides and show them in a web browser. Programmed in Pharo for Pharo :) ').
+slide addComponent: (SBParagraph new: 'Smallbook is a tool for creating presentations with basic slides and show them in a web browser. Programmed in Pharo for Pharo :) ').
 server addSlide: slide.
 
 ```
@@ -32,7 +32,7 @@ server addSlide: slide.
 ## New Slide in localhost:8080/2.
 ```smalltalk
 slide := SBSlide new:'Syntax in Pharo' style:'simple_light'.
-slide addComponent: (SBParagrah new: 'Examples').
+slide addComponent: (SBParagraph new: 'Examples').
 slide addComponent: (SBCode new: '
 |number string list|
 "comments"
@@ -49,7 +49,7 @@ server addSlide: slide.
 ## New Slide in localhost:8080/3.
 ```smalltalk
 slide := SBSlide new:'Pharo'.
-slide addComponent: (SBParagrah new:'Pharo is a pure object-oriented programming language and a powerful environment, focused on simplicity and immediate feedback (think IDE and OS rolled into one).').
+slide addComponent: (SBParagraph new:'Pharo is a pure object-oriented programming language and a powerful environment, focused on simplicity and immediate feedback (think IDE and OS rolled into one).').
 slide addComponent: (SBImage new: 'https://pharo.org/web/files/pharo.png' align: 'Center' percentSize:40).
 server addSlide: slide.
 ```
