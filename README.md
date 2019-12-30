@@ -11,6 +11,8 @@ Metacello new
   load.
 ```
 
+# [Example Page](https://pharo-smallbook.herokuapp.com)
+
 # Basic usage
 
 ```smalltalk
