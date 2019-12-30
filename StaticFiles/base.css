@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     padding:0;
     margin: 0;
-    height: 100vh
+    /* height: 100vh */
 }
 
 .Control{
@@ -30,7 +30,7 @@ body {
 }
 
 .SBTitleNormal{
- 
+
 }
 
 .SBTitleNormalSub{
@@ -40,7 +40,7 @@ body {
 .SBParagrah {
     padding-top: 2%;
 }
-	
+
 .SBTitleSpecial{
 	font-size:3.5em;
 }
@@ -86,14 +86,14 @@ body {
 
 
 
-@media (max-width: 800px) { 
+@media (max-width: 800px) {
     .SBSlide{
         font-size: 1.2em;
     }
     .SBTitleSpecial{
        font-size:2.2em;
     }
-    .SBTitle{ 
-       
+    .SBTitle{
+
     }
 }
