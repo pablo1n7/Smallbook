@@ -9,16 +9,15 @@
     font-weight: bold;
 }
 
-
 .SBSlide{
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 2em;
     padding: 0 20px;
-    flex-grow: 2;
     background-color: #1089ff;
-    color: #fff
+    color: #fff;
+    height: calc(100vh - 43px);
 }
 
 img {
@@ -28,11 +27,46 @@ img {
 }
 
 pre {
-    background-color: #23374d !important;
-}
+    background-color: #23374d87 !important;
+    /* max-width: 85vw; */
+    border-radius: 5px;
 
+}
 
 .SBTitleSpecial{
     font-size:3.5em;
-    text-shadow: 1px 2px 3px rgba(0,0,0,.3)
+    text-shadow: 1px 2px 3px rgba(0,0,0,.3);
+}
+
+@media (width < 900px) {
+    .SBTitleSpecial{
+        font-size: 1em;
+    }
+
+    code {
+        font-size: .75em
+    }    
+}
+
+
+/* Custom highlight colors */
+.hljs {
+    background:inherit;
+    color:inherit;
+}
+
+.hljs-number{
+    color:#fb52b1;
+}
+
+.hljs-type{
+    color:gold;
+}
+
+.hljs-string{
+    color:greenyellow;
+}
+
+.hljs-comment{
+    color:lightblue;
 }
