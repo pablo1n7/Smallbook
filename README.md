@@ -2,6 +2,15 @@
 
 Smallbook is a tool for creating presentations with basic slides and show them in a web browser. Programmed in Pharo for Pharo :) 
 
+# Install
+
+```smalltalk
+Metacello new
+  baseline: #Smallbook;
+  repository: 'github://pablo1n7/Smallbook';
+  load.
+```
+
 # Basic usage
 
 ```smalltalk
